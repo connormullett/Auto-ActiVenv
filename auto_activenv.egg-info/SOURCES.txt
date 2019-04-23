@@ -6,3 +6,4 @@ auto_activenv.egg-info/dependency_links.txt
 auto_activenv.egg-info/entry_points.txt
 auto_activenv.egg-info/requires.txt
 auto_activenv.egg-info/top_level.txt
+src/script
