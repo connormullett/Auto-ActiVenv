@@ -14,6 +14,7 @@ setup(
     long_description=read('README.md'),
     keywords='virtualenv venv virtual environment automation sandbox',
     packages=['src'],
+    license='MIT',
     url='https://github.com/connormullett/auto-activenv',
     install_requires = [
         'click',
