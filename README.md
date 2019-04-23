@@ -2,7 +2,7 @@
 # Auto Activenv
 
 Python package to automatically activate virtual environments when installed
-Compatible with Python2 and Python3.5+
+Compatible with Python2 and Python3.5+, all linux distros, and MacOs
 
 ## Disclaimers
 - This package is NOT compatible with Windows
