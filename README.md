@@ -16,4 +16,5 @@ environments `venv`
 
 ## TODO's
 - Change name of virtualenvs with option or use regex to determine virtualenvs
+- Install detection
 

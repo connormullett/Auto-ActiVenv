@@ -35,9 +35,6 @@ def install(path, shell, no_backup):
         click.echo('No RC file found :: exiting')
         sys.exit(1)
     with open('%s/.%src' % (home, shell), 'a+') as f:
-        if not Script in f.read():
-            f.write(Script)
-            click.echo('already installed :: exiting')
-            sys.exit(0)
+        f.write(Script)
     click.secho('DONE', fg='cyan', bold=True)
 
