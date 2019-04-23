@@ -9,12 +9,13 @@ Compatible with Python2 and Python3.5+
 - This package (as of right now) will only work if you name your virtual
 environments `venv`
 
-## Usage
+## Installation
 - `pip install auto-activenv`
 - `activenv --help` for options
+- run `activenv [OPTIONS]` to install
 - Once installed, it is safe to remove the CLI `pip uninstall auto-activenv`
 
 ## TODO's
 - Change name of virtualenvs with option or use regex to determine virtualenvs
-- Install detection
+- detect if package has already been installed
 
