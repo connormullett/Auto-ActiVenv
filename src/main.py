@@ -1,16 +1,27 @@
 
-import os, sys, subprocess
+import os, sys
 import click
 from .script import Script
+import platform
+
+if int(platform.python_version_tuple()[0]) < 3:
+    version = 2
+    import commands
+else:
+    version = 3
+    import subprocess
 
 
 @click.command()
 @click.option('-p', '--path', help='path to shell')
 @click.option('-s', '--shell', help='the name of the shell')
-@click.option('--no-backup', is_flag=True)
+@click.option('--no-backup', help='choose to not make a backup of conf file', is_flag=True)
 def install(path, shell, no_backup):
     if not path:
-        path = subprocess.getoutput('which $SHELL')
+        if version == 3:
+            path = subprocess.getoutput('which $SHELL')
+        else:
+            path = commands.getoutput('which $SHELL')
 
     if not shell:
         shell = path.split('/')[-1]
