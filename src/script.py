@@ -1,12 +1,15 @@
 
-Script = '''
+# maybe add regex to base script
+# so that all venvs work
+
+base = '''
 function cd() {
   builtin cd "$@"
 
   if [[ -z "$VIRTUAL_ENV" ]] ; then
-      if [[ -d ./venv ]] ; then
+      if [[ -d ./%s ]] ; then
         echo ":: Activating virtual environment"
-        source ./venv/bin/activate
+        source ./%s/bin/activate
       fi
   else
       parentdir="$(dirname "$VIRTUAL_ENV")"
@@ -17,4 +20,8 @@ function cd() {
   fi
 }
 '''
+
+def create_script(name):
+    # TODO: add more arguments for greater custimization
+    return base % (name, name)
 

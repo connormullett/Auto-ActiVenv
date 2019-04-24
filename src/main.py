@@ -1,7 +1,7 @@
 
 import os, sys
 import click
-from .script import Script
+from .script import create_script
 import platform
 
 if int(platform.python_version_tuple()[0]) < 3:
@@ -16,7 +16,12 @@ else:
 @click.option('-p', '--path', help='path to shell')
 @click.option('-s', '--shell', help='the name of the shell')
 @click.option('--no-backup', help='choose to not make a backup of conf file', is_flag=True)
-def install(path, shell, no_backup):
+@click.option('-n', '--name', help='the common name of your virtual environments, if you tend to name your virt environments differently, use --not-common', default='venv')
+@click.option('--no-common', is_flag=True, help='NOT IMPLEMENTED')
+def install(path, shell, no_backup, name):
+
+    install_script = create_script(name)
+
     if not path:
         if version == 3:
             path = subprocess.getoutput('which $SHELL')
@@ -35,6 +40,6 @@ def install(path, shell, no_backup):
         click.echo('No RC file found :: exiting')
         sys.exit(1)
     with open('%s/.%src' % (home, shell), 'a+') as f:
-        f.write(Script)
+        f.write(install_script)
     click.secho('DONE', fg='cyan', bold=True)
 
